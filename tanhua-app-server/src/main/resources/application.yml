@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: tanhua-app-server
+tanhua:
+  sms:
+    signName: 强哥说Java
+    templateCode: 1399701
+    accessKey: *
+    secret: *
