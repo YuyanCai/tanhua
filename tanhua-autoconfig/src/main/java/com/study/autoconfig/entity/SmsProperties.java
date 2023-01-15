@@ -1,4 +1,4 @@
-package com.study.autoconfig.config;
+package com.study.autoconfig.entity;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
