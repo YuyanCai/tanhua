@@ -1,6 +1,6 @@
 package com.study.autoconfig.template;
 
-import com.study.autoconfig.config.SmsProperties;
+import com.study.autoconfig.entity.SmsProperties;
 import com.tencentcloudapi.common.Credential;
 import com.tencentcloudapi.common.exception.TencentCloudSDKException;
 import com.tencentcloudapi.common.profile.ClientProfile;
