@@ -1,15 +1,12 @@
 package com.study.server.service.impl;
 
 import cn.hutool.crypto.digest.DigestUtil;
-import com.alibaba.fastjson.JSON;
 import com.study.api.UserApi;
 import com.study.autoconfig.template.SmsTemplate;
-import com.study.entiy.ErrorResult;
+import com.study.vo.ErrorResult;
 import com.study.entiy.User;
 import com.study.server.service.UserService;
 import com.study.utils.JwtUtils;
-import org.apache.commons.codec.cli.Digest;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -48,7 +45,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResponseEntity login(String mobile, String code) {
+    public ResponseEntity loginVerification(String mobile, String code) {
         String redisKey = "CHECK_CODE_";
 //       1. 获取redis中存入的验证码
         String value = redisTemplate.opsForValue().get(redisKey + mobile);
@@ -76,11 +73,8 @@ public class UserServiceImpl implements UserService {
         tokenMap.put("id",user.getId());
         tokenMap.put("mobile",mobile);
         String token = JwtUtils.getToken(tokenMap);
-        //4、将用户数据存入redis中
-        String jsonString = JSON.toJSONString(user);//将对象转化为json字符串
-        //存入redis，设置失效时间
-        redisTemplate.opsForValue().set("TOKEN_"+token,jsonString,Duration.ofHours(1));
-        //5、构造返回值
+
+        //7、构造返回值
         Map map = new HashMap();
         map.put("token", token);
         map.put("isNew",isNew);

@@ -37,7 +37,7 @@ public class Sample {
 
     @Test
     public void testSendSms(){
-        smsTemplate.sendMessage("17630917865","5555");
+        smsTemplate.sendMessage("17630345765","5555");
     }
 
     /**
