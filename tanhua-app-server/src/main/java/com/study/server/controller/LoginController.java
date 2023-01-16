@@ -37,7 +37,7 @@ public class LoginController {
     public ResponseEntity loginVerification(@RequestBody Map map) {
         String mobile = (String) map.get("phone");
         String code = (String) map.get("verificationCode");
-        return userService.login(mobile,code);
+        return userService.loginVerification(mobile,code);
     }
 
 }

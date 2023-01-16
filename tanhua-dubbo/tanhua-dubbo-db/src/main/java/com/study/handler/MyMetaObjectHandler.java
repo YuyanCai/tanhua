@@ -1,4 +1,4 @@
-package com.study.server.handler;
+package com.study.handler;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import org.apache.ibatis.reflection.MetaObject;

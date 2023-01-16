@@ -1,4 +1,4 @@
-package com.study.entiy;
+package com.study.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

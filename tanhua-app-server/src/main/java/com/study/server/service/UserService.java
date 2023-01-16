@@ -9,5 +9,5 @@ import org.springframework.http.ResponseEntity;
 public interface UserService {
     public ResponseEntity senMsg(String phone);
 
-    ResponseEntity login(String mobile, String code);
+    ResponseEntity loginVerification(String mobile, String code);
 }

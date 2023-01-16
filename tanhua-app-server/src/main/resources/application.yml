@@ -16,9 +16,21 @@ dubbo:    #dubbo配置
     address: spring-cloud://127.0.0.1
   consumer:
     check: false
+  cloud:
+    subscribed-services: tanhua-dubbo-db
 tanhua:
   sms:
     signName: 强哥说Java
     templateCode: 1399701
     accessKey: *
     secret: *
+  oss:
+    accessKey: *
+    secret: *
+    endpoint: oss-cn-beijing.aliyuncs.com
+    bucketName: edu-pengyuyan
+    url: https://edu-pengyuyan.oss-cn-beijing.aliyuncs.com/
+  aip:
+    appId: 29748815
+    apiKey: *
+    secretKey: *
