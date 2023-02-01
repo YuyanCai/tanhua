@@ -17,4 +17,7 @@ public interface UserApi {
     User findByMobile(String mobile);
 
     Long save(User user);
+
+    //查询当前用户手机号
+    String findUserPhone(String userId);
 }

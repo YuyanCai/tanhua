@@ -18,7 +18,7 @@ public class JwtUtils {
     private static final int TOKEN_TIME_OUT = 3_600;
 
     // 加密KEY
-    private static final String TOKEN_SECRET = "itcast";
+    private static final String TOKEN_SECRET = "xiaocaicoding";
 
 
     // 生成Token
@@ -53,7 +53,7 @@ public class JwtUtils {
 
         try {
             Claims claims = Jwts.parser()
-                    .setSigningKey("itcast")
+                    .setSigningKey("xiaocaicoding")
                     .parseClaimsJws(token)
                     .getBody();
         }catch (Exception e) {

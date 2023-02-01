@@ -5,6 +5,7 @@ package com.study.api;
  * @since: 2023/01/15/16:39
  */
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.study.entiy.User;
 import com.study.mapper.UserMapper;
@@ -31,5 +32,13 @@ public class UserApiImpl implements UserApi {
     public Long save(User user) {
         userMapper.insert(user);
         return user.getId();
+    }
+
+    @Override
+    public String findUserPhone(String userId) {
+        QueryWrapper<User> wrapper = new QueryWrapper<>();
+        wrapper.eq("id",userId);
+        User user = userMapper.selectOne(wrapper);
+        return user.getMobile();
     }
 }
