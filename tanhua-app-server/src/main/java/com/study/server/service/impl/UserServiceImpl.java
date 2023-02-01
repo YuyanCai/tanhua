@@ -80,5 +80,27 @@ public class UserServiceImpl implements UserService {
         map.put("isNew",isNew);
         return ResponseEntity.ok(map);
     }
+
+    @Override
+    public String getUserPhone(String userId) {
+        String userPhone = userApi.findUserPhone(userId);
+        return userPhone;
+    }
+
+//    更换手机号验证码校验
+    @Override
+    public ResponseEntity updatePhoneVerification(String mobile, String code) {
+        String redisKey = "CHECK_CODE_";
+//       1. 获取redis中存入的验证码
+        String value = redisTemplate.opsForValue().get(redisKey + mobile);
+//        2.校验
+        if (value == null | !value.equals(code)) {
+            return ResponseEntity.status(500).body(ErrorResult.loginError());
+        }
+//        3.登录成功之后删除掉验证码
+        redisTemplate.delete(redisKey+mobile);
+
+        return ResponseEntity.ok(null);
+    }
 }
 

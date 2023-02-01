@@ -20,8 +20,6 @@ dubbo:
     address: spring-cloud://172.20.10.2
   scan:
     base-packages: com.study.api  #dubbo中包扫描
-  cloud:
-    subscribed-services: tanhua-app-server
 
 mybatis-plus:
   global-config:
