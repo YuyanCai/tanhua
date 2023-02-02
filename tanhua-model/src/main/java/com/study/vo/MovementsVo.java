@@ -1,10 +1,12 @@
 package com.study.vo;
-import org.springframework.beans.BeanUtils;
+
+
 import com.study.entiy.UserInfo;
 import com.study.mongo.Movement;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.BeanUtils;
 import org.springframework.util.StringUtils;
 
 import java.io.Serializable;
@@ -30,9 +32,9 @@ public class MovementsVo implements Serializable {
     private String[] imageContent; //图片动态
     private String distance; //距离
     private String createDate; //发布时间 如: 10分钟前
-    private Integer likeCount; //点赞数
-    private Integer commentCount; //评论数
-    private Integer loveCount; //喜欢数
+    private Integer likeCount = 0; //点赞数
+    private Integer commentCount = 0; //评论数
+    private Integer loveCount = 0; //喜欢数
 
 
     private Integer hasLiked; //是否点赞（1是，0否）
@@ -58,10 +60,6 @@ public class MovementsVo implements Serializable {
         //设置是否点赞(后续处理)
         vo.setHasLoved(0);
         vo.setHasLiked(0);
-        //点赞，喜欢，评论数量
-        vo.setLikeCount(0);
-        vo.setLoveCount(0);
-        vo.setCommentCount(0);
         return vo;
     }
 }
